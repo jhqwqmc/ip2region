@@ -6,3 +6,8 @@ authors: [ jhqwqmc ]
 website: https://github.com/jhqwqmc
 depend:
   - "PlaceholderAPI"
+commands:
+  reload:
+    description: 重新加载插件
+    permission: ip2region.reload
+    usage: /<command>

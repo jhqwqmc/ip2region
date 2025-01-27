@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
 group = 'cn.gtemc'
@@ -24,6 +25,7 @@ dependencies {
     compileOnly("io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT")
     compileOnly("me.clip:placeholderapi:2.11.6")
     implementation("org.lionsoul:ip2region:2.7.0")
+    implementation("com.google.code.gson:gson:2.11.0")
 }
 
 def targetJavaVersion = 17
@@ -51,4 +53,13 @@ processResources {
     filesMatching('plugin.yml') {
         expand props
     }
+}
+
+shadowJar {
+    relocate("org.lionsoul", "cn.gtemc.ip2region.libraries.org.lionsoul")
+    relocate("com.google.gson", "cn.gtemc.ip2region.libraries.com.google.gson")
+}
+
+build {
+    dependsOn(shadowJar)
 }
