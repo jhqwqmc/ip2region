@@ -1,0 +1,6 @@
+name: ip2region
+version: '0.0.1'
+main: cn.gtemc.ip2region.Ip2region
+api-version: '1.20'
+authors: [ jhqwqmc ]
+website: https://github.com/jhqwqmc
